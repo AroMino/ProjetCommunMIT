@@ -1,0 +1,371 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    position:relative;
+    background-image:url("./img/accueilBackground1.png");
+    background-size:cover;
+    background-position-y: 50%;
+    background-attachment: fixed;
+    width:100vw;
+    height:auto;
+    overflow-x: hidden;
+}
+
+nav{
+    width: 100%;
+    height: 100px;
+    padding:20px 0 0 0;
+    display: flex;
+    align-items:center;
+
+    position:fixed;
+    top:0;
+    z-index: 100;
+    transition:0.5;
+}
+
+nav hr{
+    position:absolute;
+    top:100%;
+    width:90%;
+    margin:0 5%;
+}
+
+nav .left{
+    width:30%;
+    height:80%;
+    position:absolute;
+    left:2%;
+    margin:0 5%;
+
+    display: flex;
+    align-items: center;
+    gap:5%;
+}
+
+nav .left .menu{
+    min-width: 40px;
+    min-height: 40px;
+    background-color: rgba(255, 255, 255, 0.308);
+    border-radius: 50%;
+}
+
+nav .left a{
+    color:white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+nav .right{
+    width:80vh;
+    height:80%;
+    position:absolute;
+    right:2%;
+    margin:0 5%;
+
+    display: flex;
+    align-items:center;
+    justify-content: flex-end;
+    gap:5%;
+}
+
+nav .right input{
+    background:transparent;
+    width:60%;
+    height: 6vh;
+    border-radius:30px;
+    border: solid 1px white;
+    outline:none;
+
+    color: white;
+    padding: 0 20px;
+    font-size: 1vw;
+}
+
+nav .right .pseudo{
+    color:white;
+    font-size: 20px;
+}
+
+nav .right .profil{
+    min-width: 40px;
+    min-height: 40px;
+    background-image: url("./img/user.png");
+    background-size: 100%;
+    background-color: #fff;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.welcome{
+    position:absolute;
+    top: 100px;
+    width:80vw;
+    height:70vh;
+    margin:0% 0 5% 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    z-index: 5;
+}
+
+.welcome h1{
+    color:white;
+    font-size: 65px;
+    font-family:sans-serif;
+}
+
+.box-arrow{
+    position:absolute;
+    top:80vh;
+    width: 100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+}
+
+.box-arrow span{
+    display:inline-block;
+    color: rgba(255, 255, 255, 0.548);
+    font-size: 1vh;
+}
+
+.box-arrow .circle{
+    background-color: rgba(255, 255, 255, 0.548);
+    width:5vh;
+    height: 5vh;
+    border-radius: 50%;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-arrow .circle img{
+    width:50%;
+}
+
+.box-blur{
+    position:fixed;
+    top:0%;
+    left:-25%;
+    width:130%;
+    height:100%;
+    overflow:hidden;
+    z-index: 0;
+}
+
+.blur{
+    position:absolute;
+    top:0%;
+    left:-10%;
+    transform: rotateZ(-45deg);
+    width:200%;
+    height:100%;
+    z-index: 0;
+}
+
+.red-blur{
+    position:absolute;
+    top:var(--pos);
+    left:-40%;
+    background-color: rgba(255, 0, 0, 0.115);
+    width: 200%;
+    height:150%;
+    z-index: 0;
+}
+.box-folder{
+    position:absolute;
+    top:90vh;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height:auto;
+
+    overflow-x: hidden;
+    z-index:10;
+    transition:0.5s;
+}
+
+.box-folder .folder{
+    width:70%;
+    height:min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.box-folder .folder > .top, .box-folder .folder > .body-block{
+    width: 100%;
+    height: max-content;
+    background-color: #fff;
+    transition:0.5s;
+    overflow-x: hidden;
+    z-index:10;
+}
+
+.box-folder .folder > .top{
+    height: 7vh;
+    clip-path: polygon(0% 0%, 0% 100%, 28% 100%, 27% 90%, 21% 10%, 20% 0%);
+    border-style: none;
+    border-top-left-radius: 15px;
+}
+
+.box-folder .folder > .body-block{
+    padding:30% 0 0 0;
+    border-style: none;
+    border-color: #fff;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.scroll-bar{
+    position:fixed;
+    top:33%;
+    left:4%;
+
+    height: 50vh;
+
+    display: flex;
+
+    border-left: solid 1px #afafaf7e;
+    border-right: solid 1px #afafaf7e;
+
+    opacity: 0;
+
+    z-index: 100;
+}
+.scroll-bar .start, .scroll-bar .end, .scroll-bar .thumb{
+    position:absolute;
+    left:-0.5vh;
+
+    width:1vh;
+    height:1vh;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.scroll-bar-bar .start{
+    top:0;
+}
+.scroll-bar .end{
+    top:100%;
+}
+
+.scroll-bar .thumb{
+    top: 0%;
+}
+.scroll-bar .thumb div{
+    position: absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    border:solid 1px white;
+    border-radius:50%;
+}
+
+@media screen and (max-width: 1080px){
+    nav .right{
+        width:50vw;
+        gap:30px;
+    }
+    nav .left{
+        width:50vw;
+        gap:30px;
+    }
+    .box-blur{
+        position:fixed;
+        top:0%;
+        left:-40%;
+        width:200%;
+        height:100%;
+        overflow:hidden;
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: 720px){
+    nav .right{
+        width:50vw;
+    }
+    nav .right input{
+        font-size: 2vh;
+    }
+    nav .left a{
+        font-size: 20px;
+    }
+    .box-arrow .circle{
+        width:3vh;
+        height:3vh;
+    }
+    .box-arrow .span{
+        font-size:1.5vh;
+    }
+    .box-blur{
+        position:fixed;
+        top:10%;
+        left:0%;
+        width:200%;
+        height:100%;
+        overflow:hidden;
+        z-index: 0;
+    }
+}
+
+@media screen and (max-width: 480px){
+    nav{
+        height:100px;
+    }
+    nav .left a{
+        font-size: 15px;
+    }
+    nav .right .pseudo{
+        font-size: 15px;
+    }
+    nav .left .menu{
+        min-width: 30px;
+        min-height: 30px;
+    }
+    nav .right .profil{
+        min-width: 30px;
+        min-height: 30px;
+    }
+    nav .right input{
+        width:45vw;
+        font-size: 3vw;
+        max-height: 4vh;
+    }
+    .welcome{
+        margin:0;
+        width:100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .box-folder{
+        top:87vh;
+    }
+    .box-folder .folder > .body-block{
+        padding:200px 0 0 0;
+    }
+    .box-folder .folder > .top{
+        clip-path: polygon(0% 0%, 0% 100%, 40% 100%, 25% 0%);
+        height: 3.5vh;
+    }
+}
+.box{
+    transition:0.5s;
+}

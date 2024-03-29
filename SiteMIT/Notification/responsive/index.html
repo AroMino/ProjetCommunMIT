@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="swiper-bundle.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <title>Presence</title>
+</head>
+<body>
+    <nav>
+        <div class="left">
+            <div class="menu"></div>
+            <a href="#"> Presence</a>
+        </div>
+        <div class="right">
+            <div class="box-search">
+                <input type="text" name="search" id="global-search" placeholder="Recherche ..." value="">
+                <button>S</button>
+            </div>
+            <div class="profil"></div>
+        </div>
+        <hr>
+    </nav>
+
+    <div class="box-blur">
+        <div class="blur">
+            <div class="red-blur" style="--pos:0%"></div>
+            <div class="red-blur" style="--pos:12%"></div>
+            <div class="red-blur" style="--pos:24%"></div>
+        </div>
+    </div>
+
+    <script>
+        // Désactiver l'entrée au clavier
+        function openDatePicker() {
+            document.getElementById("date").focus(); // Simuler un clic sur l'input de date
+        }
+    </script>
+
+    <form action="./presence.php" method="get">
+        <label for="date"></label><input type="date" name="date" value="2024-03-28" id="date" class="date" onclick="openDatePicker()">
+        <input type="text" name="search" hidden value="">
+        <button type="submit"></button>
+    </form>
+
+    <div class="stats">
+        <div class="present">
+            <h4>Nombre d'élèves présents</h4>
+            <h2>123</h2>
+        </div>
+        <div class="absent">
+            <h4>Nombre d'absents hier</h4>
+            <h2>1</h2>
+        </div>
+    </div>
+
+    <div class="level-filter">
+        <a href="./presence.php?level=tous" class="current-level" >Tous</a>
+        <a href="./presence.php?level=L1" >L1</a>
+        <a href="./presence.php?level=L2" >L2</a>
+        <a href="./presence.php?level=L3" >L3</a>
+        <a href="./presence.php?level=M1" >M1</a>
+        <a href="./presence.php?level=M2" >M2</a>
+    </div>
+
+    <div class="box-folder">
+        <div class="folder">
+            <div class="legende-presence">
+                    <div class="presence">
+                        <div class="check absent checked" style="--color:#FF0404;"></div><label for="absent">Absent(e)</label>
+                        <div class="check present checked" style="--color:#E7BB2D;"></div><label for="present">Present(e)</label>
+                    </div>
+            </div>
+            <div class="top"> </div>
+            <div class="body-block">
+                <div class="box">
+                    <table>
+                        <tr>
+                            <th>Prénoms</th>
+                            <th>ID PC</th>
+                            <th>Niveau</th>
+                            <th>Retrait</th>
+                            <th>Remise</th>
+                            <th>Présence</th>
+                        </tr>
+                    </table>
+                
+                    <section class="swiper-container">
+                        <div class="swiper-wrapper">
+                                                                    <div class="swiper-slide">
+                                            <table>
+                                                                                                            <tr>
+                                                                                                                                            <td> Alexandre Fandry  </td>
+                                                                                                                                                    <td> 2 </td>
+                                                                                                                                                    <td> L2 </td>
+                                                                                                                                                    <td> 2024-03-27 21:04:48 </td>
+                                                                                                                                                    <td>  </td>
+                                                                                                                                                    <td>                                                                                         <div class="presence">
+                                                                                            <div class="check absent  checked" style="--color:#FF0404;"></div>
+                                                                                            <div class="check present " style="--color:#E7BB2D;"></div>
+                                                                                        </div>
+                                                                                     </td>
+                                                                                                                                                    <td>  </td>
+                                                                                                                                    </tr>
+                                                                                                    </table>
+                                        </div>
+                                                            </div>
+                    </section>
+                </div>
+                <div class="buttons-box">
+                    <div class="swiper-prev"></div>
+                    <div class="swiper-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="file" hidden>presence.php</div>
+    <script src="./swiper-bundle.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html> 
