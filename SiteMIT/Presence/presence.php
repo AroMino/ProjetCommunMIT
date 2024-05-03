@@ -26,19 +26,18 @@
                 inner join inscription on
                     inscription.id_etudiant=etudiants.id_etudiant
                 left join presence on 
-                    inscription.id_inscription = presence.id_etudiant
+                    inscription.id_inscription = presence.id_etudiant and presence.date_presence = '{$date}'
                 left join machine_etudiants on
                     machine_etudiants.id_inscription_etudiant=inscription.id_inscription
-                left join stat_pc on machine_etudiants.id_machine=stat_pc.id_pc_etudiant
-                where presence.date_presence like '2024-03-27'";
+                left join stat_pc on machine_etudiants.id_machine=stat_pc.id_pc_etudiant and stat_pc.date_retrait like '{$date}%'";
 
     $result = mysqli_query($connexion,$query);
     $count = 0;
     $count_absent = 0;
     $table = [];
     while($line = mysqli_fetch_assoc($result)){
-        $line["date"] = $yesterday;
-        $line["presence"] = "";
+        // $line["date"] = $yesterday;
+        // $line["presence"] = "";
         $line['grade'] = $line['grade'].$line['niveau'];
         unset($line['niveau']);
 
@@ -46,7 +45,7 @@
             if(strstr(strtolower($line["prenoms"]),strtolower($search))) $table[] = $line;
             else if(strstr(strtolower($line["id_pc"]),strtolower($search))) $table[] = $line;
 
-            if(empty($line[$presence])) $count_absent++;
+            if(empty($line['presence'])) $count_absent++;
             $count++;
         }
     }

@@ -49,34 +49,5 @@
     $json = json_encode($list);
     print_r($list);
 
-        /// nombre non remis
-// select count(*) from presence_pc_portable as t1 where t1.status = 'Retrait' and not exists(select id_pc_portable from presence_pc_portable as t2
-// where t2.status = 'Remise' and t2.id_pc_portable = t1.id_pc_portable and t2.date_operation > t1.date_operation);
-
-// /// non remis affichage
-// select personnes.prenoms,t1.id_pc_portable,inscription.grade,inscription.niveau,presence.date_presence as presence,t1.date_operation as retrait,t3.date_operation as remise from presence_pc_portable as t1
-//                 left join machine_etudiants on
-//                     machine_etudiants.id_pc_etudiant = t1.id_pc_portable
-//                 left join inscription on
-//                     inscription.id_etudiant = machine_etudiants.id_inscription_etudiant
-//                 left join etudiants on
-//                     etudiants.id_etudiant = inscription.id_etudiant
-//                 left join personnes on
-//                     personnes.id_personne = etudiants.id_personne
-//                 left join presence on
-//                     presence.id_etudiant = etudiants.id_etudiant
-//                     and DATE(presence.date_presence) = DATE(t1.date_operation) 
-//                 left join presence_pc_portable as t3 on 
-//                     t3.id_pc_portable=t1.id_pc_portable 
-//                     and t3.date_operation>t1.date_operation 
-//                     and t3.status = 'Remise' 
-//                 where t1.status = 'Retrait' 
-//                     and not exists 
-//                         (select id_pc_portable from presence_pc_portable as t2 
-//                             where t2.status = 'Remise' and 
-//                             t2.id_pc_portable = t1.id_pc_portable and 
-//                             t2.date_operation > t1.date_operation); 
-         
-
 ?>
 
